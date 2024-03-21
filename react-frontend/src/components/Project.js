@@ -1,7 +1,6 @@
 import React from 'react';
-import LightboxGallery from './LightboxGallery'; // Assuming LightboxGallery component is in a separate file
-import 'lightbox2/dist/css/lightbox.min.css'; // Import CSS first
-import 'lightbox2/dist/js/lightbox.min.js'; // Then import JavaScript
+import LightboxGallery from './LightboxGallery'; 
+
 
 const Project = () => {
     const images = [

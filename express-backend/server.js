@@ -3,8 +3,7 @@ const dotenv = require('dotenv');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2/promise');
-const cors = require('cors'); // Import the cors middleware
-const fs = require('fs');
+const cors = require('cors'); 
 const path = require('path');
 
 // Load environment variables based on NODE_ENV
@@ -35,12 +34,13 @@ const pool = mysql.createPool(dbConfig);
 app.post('/api/submitForm', async (req, res) => {
   try {
     const { name, email, message } = req.body;
+    const ipAddress = req.ip; // Get the IP address of the client
 
     // Get a connection from the pool
     const connection = await pool.getConnection();
 
-    // Insert the form data into the database
-    await connection.query('INSERT INTO contact_form (name, email, message) VALUES (?, ?, ?)', [name, email, message]);
+    // Insert the form data and IP address into the database
+    await connection.query('INSERT INTO contact_form (name, email, message, ip_address) VALUES (?, ?, ?, ?)', [name, email, message, ipAddress]);
 
     // Release the connection
     connection.release();
