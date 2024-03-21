@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import { Formik, Field, ErrorMessage } from 'formik';
+import { Container, Row, Col, Form as BootstrapForm, Button } from 'react-bootstrap';
+import { Formik,Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 
@@ -18,8 +18,13 @@ const ContactSchema = Yup.object().shape({
 const ContactForm = () => {
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
-      // Axios post request here
+      // Make POST request to your server to save the form data
+      await axios.post('http://localhost:5000/api/submitForm', values);
+      
+      // Log success message
       console.log('Form submitted:', values);
+      
+      // Reset form fields
       resetForm();
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -35,26 +40,26 @@ const ContactForm = () => {
       onSubmit={handleSubmit}
     >
       {({ isSubmitting }) => (
-        <Form className="contact-form">
+        <Form className="contact-form" >
           <h1>Drop Us a Message</h1>
           <Row >
             <Col xs={12} sm={6} className="mt-3">
-              <Form.Group>
+              <BootstrapForm.Group>
                 <Field type="text" name="name" className="form-control " placeholder="Your Name" />
                 <ErrorMessage name="name" component="div" className="text-danger" />
-              </Form.Group>
+              </BootstrapForm.Group>
             </Col>
             <Col xs={12} sm={6} className="mt-3">
-              <Form.Group>
+              <BootstrapForm.Group>
                 <Field type="email" name="email" className="form-control " placeholder="Email" />
                 <ErrorMessage name="email" component="div" className="text-danger" />
-              </Form.Group>
+              </BootstrapForm.Group>
             </Col>
             <Col xs={12} className="mt-3">
-              <Form.Group>
+              <BootstrapForm.Group>
                 <Field as="textarea" name="message" className="form-control " placeholder="Message" />
                 <ErrorMessage name="message" component="div" className="text-danger" />
-              </Form.Group>
+              </BootstrapForm.Group>
             </Col>
           </Row>
           <div className="text-center mt-3">

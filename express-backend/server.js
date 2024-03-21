@@ -1,3 +1,4 @@
+// Import necessary modules
 const dotenv = require('dotenv');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -27,9 +28,32 @@ const DATA_DIR = path.join(__dirname, 'uploads');
 app.use(bodyParser.json());
 app.use(cors()); // Enable CORS middleware
 
+// MySQL connection pool
+const pool = mysql.createPool(dbConfig);
 
+// Endpoint to handle form submission and save data into MySQL database
+app.post('/api/submitForm', async (req, res) => {
+  try {
+    const { name, email, message } = req.body;
+
+    // Get a connection from the pool
+    const connection = await pool.getConnection();
+
+    // Insert the form data into the database
+    await connection.query('INSERT INTO contact_form (name, email, message) VALUES (?, ?, ?)', [name, email, message]);
+
+    // Release the connection
+    connection.release();
+
+    // Send success response
+    res.status(200).json({ success: true, message: 'Form data saved successfully' });
+  } catch (error) {
+    console.error('Error saving form data:', error);
+    res.status(500).json({ success: false, message: 'Internal server error' });
+  }
+});
 
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
-  });
+});

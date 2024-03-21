@@ -20,7 +20,7 @@ const Project = () => {
       ];
     
   return (
-    <div>
+    <div id='projects' >
       <h1>Our Projects</h1>
       <LightboxGallery images={images} />
     </div>

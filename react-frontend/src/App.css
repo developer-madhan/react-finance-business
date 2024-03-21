@@ -66,7 +66,7 @@ h1 {
 }
 h1:before {
   content: "";
-  background: url(../images/underline.png) no-repeat;
+  background: url(./images/underline.png) no-repeat;
   width: 74px;
   height: 11px;
   position: absolute;
@@ -169,7 +169,7 @@ p {
 	 Slider css
 *********************************************/
 .slider-wrap {
-  background: url(../images/banner1.jpg) no-repeat;
+  background: url(./images/banner1.jpg) no-repeat;
   background-size: cover;
   padding: 180px 0 220px 0;
 }
@@ -277,23 +277,7 @@ p {
 .welcomeLinks {
   margin-top: 20px !important;
 }
-.welcomeLinks li {
-  font-size: 16px;
-  font-weight: 600;
-  color: #000;
-  margin-top: 12px;
-  position: relative;
-  padding-left: 28px;
-}
-.welcomeLinks li:before {
-  content: "\f0a9";
-  font-family: "FontAwesome";
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 18px;
-  color: #f80606;
-}
+
 .readmore {
   margin-top: 20px;
 }
@@ -836,7 +820,8 @@ a.wit-btn {
 
 #counter {
   text-align: center;
-  background: url(../images/counter-bg.jpg) no-repeat top;
+  /* background: url(./images/counter-bg.jpg) no-repeat top; */
+  background: url(./images/counter-bg.jpg) no-repeat top;
   background-size: cover;
   padding: 50px 0;
 }
@@ -1148,7 +1133,7 @@ a.wit-btn {
 		Testimonials css
 *************************************/
 .testimonialsWrap {
-  background: url(../images/testimonial-bg.jpg) no-repeat top;
+  background: url(./images/testimonial-bg.jpg) no-repeat top;
   background-size: cover;
   padding: 70px 0;
 }
@@ -1319,7 +1304,7 @@ a.wit-btn {
 		Contact US CSS
 ***************************************/
 .contact-wraper {
-  background: url(../images/contact-bg.jpg) no-repeat top;
+  background: url(./images/contact-bg.jpg) no-repeat top;
   background-size: cover;
   padding: 70px 0;
 }
