@@ -271,7 +271,7 @@ p {
   position: absolute;
   top: 20px;
   left: 20px;
-  right: 20px;
+  right: 90px;
   bottom: 20px;
 }
 .welcomeLinks {
@@ -1184,6 +1184,7 @@ a.wit-btn {
   margin: 0 auto;
   color: #fff;
   font-style: italic;
+  text-align: justify;
 }
 .testimonialsList .rating {
   color: #f9ff00;
@@ -1317,6 +1318,7 @@ a.wit-btn {
   align-items: center;
   line-height: 1;
   margin-bottom: 30px;
+  margin-left: 47px;
 }
 .detail-column .icn-wrap {
   margin-right: 15px;
@@ -1341,11 +1343,7 @@ a.wit-btn {
 .detail-column a:hover {
   color: #ff6700;
 }
-.contact-form {
-  border-top: 1px solid #eee;
-  padding-top: 30px;
-  margin-top: 30px;
-}
+
 .contact-form h1 {
   color: #fff;
 }

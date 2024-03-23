@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import "lightbox2/dist/css/lightbox.min.css";
 import "lightbox2/dist/js/lightbox.min.js";
 
-const LightboxGallery = ({ images }) => {
+const LightboxGallery = ({ images }) => { 
   useEffect(() => {
     const lightbox = window.lightbox;
 
@@ -26,11 +26,15 @@ const LightboxGallery = ({ images }) => {
   return (
     <div>
       <Container>
-        {images.map((image, index) => (
-          <a href={image.src} data-lightbox="gallery" key={index}>
-            <img src={image.thumbnail} alt={image.alt} className="m-3" />
-          </a>
-        ))}
+        <Row>
+          {images.map((image, index) => (
+            <Col md={2} >
+              <a href={image.src} data-lightbox="gallery" key={index}>
+                <img src={image.thumbnail} alt={image.alt} className="m-3" />
+              </a>
+            </Col>
+          ))}
+        </Row>
       </Container>
     </div>
   );

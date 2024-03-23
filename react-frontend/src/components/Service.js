@@ -72,18 +72,34 @@ const Service = () => {
     autoplay: true,
     autoplaySpeed: 2000,
     pauseOnHover: true,
+    responsive: [
+      {
+        breakpoint: 1024, // LG view
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768, // Mobile view
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
     <Container id="service">
-      <h1 className="my-2">Our Service</h1>
+      <h1 className='my-5'>Our Service</h1>
       <Slider {...settings}>
-        {data.map((d) => (
-          <div className="text-center mt-4 mb-2 " key={d.name}>
+        {data.map((d,i) => (
+          <div className="text-center mt-4 mb-2 " key={i}>
             <Card style={{ width: "18rem", minHeight: "530px" }}>
               <Card.Img variant="top" src={d.img} />
               <Card.Body>
                 <Card.Title>{d.name}</Card.Title>
-                <Card.Text>{d.review}</Card.Text>
+                <Card.Text  >{d.review}</Card.Text>
                 <Button variant="primary">Go somewhere</Button>
               </Card.Body>
             </Card>

@@ -1,5 +1,7 @@
 import React from 'react';
 import LightboxGallery from './LightboxGallery'; 
+import { Container } from "react-bootstrap";
+
 
 
 const Project = () => {
@@ -19,8 +21,9 @@ const Project = () => {
       ];
     
   return (
-    <div id='projects' >
-      <h1>Our Projects</h1>
+    <div id='projects' className='my-5' >
+
+      <h1 className='my-5'>Our Projects</h1>
       <LightboxGallery images={images} />
     </div>
   );

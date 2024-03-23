@@ -7,7 +7,9 @@ import Project from './components/Project.js';
 import Testimonial from './components/Testimonial.js';
 import Contact from './components/Contact.js';
 import Footer from './components/Footer.js';
+import ScrollToTopButton from './components/ScrollToTopButton.js';
 // import MyCarousel from './components/MyCarousel.js';
+
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
      {/* <MyCarousel/> */}
      <Contact/>
      <Footer/>
+     <ScrollToTopButton/>
     </div>
   );
 }
