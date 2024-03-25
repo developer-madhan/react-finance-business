@@ -109,19 +109,25 @@ const ContactForm = () => {
 
 function GoogleMap() {
   return (
-    <Col md={6}  >
-     <div style={{ position: "relative", overflow: "hidden", paddingTop: "56.25%" }}>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.5391465867515!2d80.25592027479509!3d13.064980312824728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5266e8064e39d7%3A0xe7f430899c08fe2c!2sAiravath%20Technologies%20Private%20Limited!5e0!3m2!1sen!2sin!4v1711168039509!5m2!1sen!2sin"
-        width="600"
-        height="650"
-        style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "0" }}
-        allowFullScreen=""
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-        className="rounded"
-      ></iframe>
-    </div>
+    <Col md={6}>
+      <div
+        style={{
+          position: "relative",
+          overflow: "hidden",
+          paddingTop: "75%",
+        }}
+      >
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3886.539230218622!2d80.258495!3d13.064975!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5266e8064e39d7%3A0xe7f430899c08fe2c!2sAiravath%20Technologies%20Private%20Limited!5e0!3m2!1sen!2sin!4v1711339062385!5m2!1sen!2sin"
+          width="800"
+          height="600"
+          style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "0" }}
+          allowfullscreen=""
+          className="rounded"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
     </Col>
   );
 }
