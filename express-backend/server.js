@@ -53,6 +53,72 @@ app.post('/api/submitForm', async (req, res) => {
   }
 });
 
+// Endpoint to fetch all form submissions
+app.get('/api/formSubmissions', async (req, res) => {
+  try {
+    // Get a connection from the pool
+    const connection = await pool.getConnection();
+
+    // Fetch all form submissions from the database
+    const [rows] = await connection.query('SELECT * FROM contact_form');
+
+    // Release the connection
+    connection.release();
+
+    // Send the form submissions as JSON response
+    res.status(200).json({ success: true, data: rows });
+  } catch (error) {
+    console.error('Error fetching form submissions:', error);
+    res.status(500).json({ success: false, message: 'Internal server error' });
+  }
+});
+
+// Endpoint to update a form submission by ID
+app.put('/api/formSubmissions/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, email, message } = req.body;
+
+    // Get a connection from the pool
+    const connection = await pool.getConnection();
+
+    // Update the form submission in the database
+    await connection.query('UPDATE contact_form SET name = ?, email = ?, message = ? WHERE id = ?', [name, email, message, id]);
+
+    // Release the connection
+    connection.release();
+
+    // Send success response
+    res.status(200).json({ success: true, message: 'Form submission updated successfully' });
+  } catch (error) {
+    console.error('Error updating form submission:', error);
+    res.status(500).json({ success: false, message: 'Internal server error' });
+  }
+});
+
+// Endpoint to delete a form submission by ID
+app.delete('/api/formSubmissions/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Get a connection from the pool
+    const connection = await pool.getConnection();
+
+    // Delete the form submission from the database
+    await connection.query('DELETE FROM contact_form WHERE id = ?', [id]);
+
+    // Release the connection
+    connection.release();
+
+    // Send success response
+    res.status(200).json({ success: true, message: 'Form submission deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting form submission:', error);
+    res.status(500).json({ success: false, message: 'Internal server error' });
+  }
+});
+
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

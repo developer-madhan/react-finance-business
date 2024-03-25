@@ -8,6 +8,7 @@ import Testimonial from './components/Testimonial.js';
 import Contact from './components/Contact.js';
 import Footer from './components/Footer.js';
 import ScrollToTopButton from './components/ScrollToTopButton.js';
+import ListOfSubmissionsPage from './admin/ListOfSubmissionsPage.js';
 // import MyCarousel from './components/MyCarousel.js';
 
 
@@ -24,6 +25,7 @@ function App() {
      <Contact/>
      <Footer/>
      <ScrollToTopButton/>
+     <ListOfSubmissionsPage/>
     </div>
   );
 }
