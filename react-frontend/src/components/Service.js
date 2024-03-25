@@ -64,7 +64,7 @@ const data = [
 
 const Service = () => {
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
@@ -91,17 +91,25 @@ const Service = () => {
   };
   return (
     <Container id="service">
-      <h1 className='my-5'>Our Service</h1>
+      <h1 className="my-5">Our Service</h1>
       <Slider {...settings}>
-        {data.map((d,i) => (
+        {data.map((d, i) => (
           <div className="text-center mt-4 mb-2 " key={i}>
-            <Card style={{ width: "18rem", minHeight: "530px" }}>
+            <Card style={{ width: "18rem", minHeight: "520px" }}>
               <Card.Img variant="top" src={d.img} />
               <Card.Body>
                 <Card.Title>{d.name}</Card.Title>
-                <Card.Text  >{d.review}</Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Card.Text>{d.review}</Card.Text>
               </Card.Body>
+              <div
+                style={{
+                  marginTop: "auto",
+                  marginBottom: "10px",
+                  textAlign: "center",
+                }}
+              >
+                <Button variant="primary">Go somewhere</Button>
+              </div>
             </Card>
           </div>
         ))}
