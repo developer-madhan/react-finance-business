@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+// ListOfSubmissionsPage.js
+import React, { useState, useEffect } from 'react';
 import { Container } from "react-bootstrap";
-import $ from 'jquery';
-import 'datatables.net-dt/js/dataTables.dataTables.min.js'; // Import DataTables JavaScript file
+
 
 function ListOfSubmissionsPage() {
   const [submissions, setSubmissions] = useState([]);
-  const tableRef = useRef(null);
 
   useEffect(() => {
     fetch('http://localhost:5000/api/formSubmissions')
@@ -13,16 +12,6 @@ function ListOfSubmissionsPage() {
       .then(data => setSubmissions(data.data))
       .catch(error => console.error('Error fetching submissions:', error));
   }, []);
-
-  useEffect(() => {
-    if (tableRef.current && !$.fn.DataTable.isDataTable(tableRef.current)) {
-      $(tableRef.current).DataTable({
-        paging: true, // Enable pagination
-        searching: true // Enable search functionality
-      });
-    }
-  }, [submissions]);
-
 
   const handleDelete = async (id) => {
     try {
@@ -45,7 +34,7 @@ function ListOfSubmissionsPage() {
   return (
     <Container>
       <h1 className="mt-4">List of Submissions</h1>
-      <table className="table mt-4" ref={tableRef}>
+      <table className="table mt-4">
         <thead>
           <tr>
             <th>Name</th>
